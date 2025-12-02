@@ -1,0 +1,15 @@
+{
+  "name": "nexo_platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compose:up": "docker compose -f ./docker/docker-compose.yml up -d --build",
+    "compose:down": "docker compose -f ./docker/docker-compose.yml -v down",
+    "compose:exec": "docker compose -f ./docker/docker-compose.yml exec -it nexo-platform bash"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.18.2"
+}

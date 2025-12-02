@@ -1,0 +1,23 @@
+service:
+  nexo-platform:
+    build:
+      context: .
+    volumes:
+      - ..:/app
+    ports:
+      - "3000:3000"
+      - "5173:5173"
+    working_dir: /app
+    command: sleep infinity
+    stop_grace_period: 2s
+  db:
+    image: postgres:15-alpine
+    container_name: nexo_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: nexo_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../database/create.sql:/docker-entrypoint-initdb.d/init.sql
